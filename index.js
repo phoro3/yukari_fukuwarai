@@ -1,8 +1,5 @@
 const $ = require("konva");
 
-
-const stageWidth = 500;
-const stageHeight = 500;
 const imageSettings = [
     {
         'path': 'assets/face.gif',
@@ -16,11 +13,23 @@ const imageSettings = [
         'path': 'assets/eye_left.gif',
         'x': 10,
         'y': 10,
-        'width': 22,
-        'height': 31,
+        'width': 44,
+        'height': 69,
+        'draggable': true,
+    },
+    {
+        'path': 'assets/eye_right.gif',
+        'x': 10,
+        'y': 10,
+        'width': 44,
+        'height': 62,
         'draggable': true,
     },
 ];
+
+
+const stageWidth = 500;
+const stageHeight = 500;
 
 const stage = new Konva.Stage({
     container: 'container',
@@ -30,7 +39,7 @@ const stage = new Konva.Stage({
 
 for (let i = 0; i < imageSettings.length; i++) {
     let imageObj = new Image();
-    settings = imageSettings[i];
+    let settings = imageSettings[i];
     imageObj.onload = function () {
         drawImage(this, settings['x'], settings['y'], settings['width'], settings['height'], settings['draggable']);
     };
