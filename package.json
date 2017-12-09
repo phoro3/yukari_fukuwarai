@@ -1,0 +1,26 @@
+{
+  "name": "yukari_fukuwarai",
+  "version": "1.0.0",
+  "description": "Fukuwarai of yukari",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify index.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phoro3/yukari_fukuwarai.git"
+  },
+  "author": "phoro3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phoro3/yukari_fukuwarai/issues"
+  },
+  "homepage": "https://github.com/phoro3/yukari_fukuwarai#readme",
+  "dependencies": {
+    "konva": "^1.7.6"
+  },
+  "devDependencies": {
+    "browserify": "^14.5.0"
+  }
+}
