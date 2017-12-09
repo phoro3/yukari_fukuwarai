@@ -1,0 +1,31 @@
+general:
+    branches:
+        ignore:
+            - gh-pages
+
+machine:
+    timezone: Asia/Tokyo
+    node:
+        version: 7.10
+
+dependencies:
+    pre:
+        - rm -rf node_modules
+    override:
+        - npm install
+
+test:
+    override:
+        - npm run test
+
+deployment:
+    deploy:
+        branch: master
+        commands:
+            - npm run build
+            - git config --global user.name "Circleci"
+            - git config --global user.email "circleci@test.com"
+            - git checkout -B gh-pages
+            - git add -f -A
+            - git commit -m "Publish [ci skip]"
+            - git push -u origin gh-pages --force
