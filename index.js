@@ -3,112 +3,112 @@ const $ = require("konva");
 const imageSettings = [
     {
         'path': 'assets/face.gif',
-        'x': 80,
-        'y': 200,
+        'x': 600,
+        'y': 100,
         'width': 372,
         'height': 464,
         'draggable': false,
     },
     {
-        'path': 'assets/eye_left.gif',
-        'x': 10,
-        'y': 10,
-        'width': 66,
-        'height': 104,
-        'draggable': true,
-    },
-    {
         'path': 'assets/eye_right.gif',
-        'x': 70,
-        'y': 10,
+        'x': 10,
+        'y': 30,
         'width': 66,
         'height': 95,
         'draggable': true,
     },
     {
-        'path': 'assets/eye_left2.gif',
-        'x': 130,
-        'y': 10,
+        'path': 'assets/eye_left.gif',
+        'x': 80,
+        'y': 30,
+        'width': 66,
+        'height': 104,
+        'draggable': true,
+    },
+    {
+        'path': 'assets/eye_right2.gif',
+        'x': 170,
+        'y': 30,
         'width': 36,
         'height': 71,
         'draggable': true,
     },
     {
-        'path': 'assets/eye_right2.gif',
-        'x': 190,
-        'y': 10,
+        'path': 'assets/eye_left2.gif',
+        'x': 220,
+        'y': 30,
         'width': 36,
         'height': 74,
         'draggable': true,
     },
     {
-        'path': 'assets/eye_left3.gif',
-        'x': 260,
-        'y': 10,
+        'path': 'assets/eye_right3.gif',
+        'x': 270,
+        'y': 30,
         'width': 86,
         'height': 83,
         'draggable': true,
     },
     {
-        'path': 'assets/eye_right3.gif',
-        'x': 330,
-        'y': 10,
+        'path': 'assets/eye_left3.gif',
+        'x': 360,
+        'y': 30,
         'width': 83,
         'height': 82,
         'draggable': true,
     },
     {
-        'path': 'assets/eyebrow_left.gif',
-        'x': 10,
-        'y': 120,
+        'path': 'assets/eyebrow_right.gif',
+        'x': 30,
+        'y': 150,
         'width': 30,
         'height': 32,
         'draggable': true,
     },
     {
-        'path': 'assets/eyebrow_right.gif',
-        'x': 50,
-        'y': 120,
-        'width': 38,
-        'height': 30,
-        'draggable': true,
-    },
-    {
-        'path': 'assets/eyebrow_left2.gif',
-        'x': 90,
-        'y': 120,
+        'path': 'assets/eyebrow_left.gif',
+        'x': 80,
+        'y': 150,
         'width': 38,
         'height': 30,
         'draggable': true,
     },
     {
         'path': 'assets/eyebrow_right2.gif',
-        'x': 150,
-        'y': 120,
+        'x': 130,
+        'y': 150,
+        'width': 38,
+        'height': 30,
+        'draggable': true,
+    },
+    {
+        'path': 'assets/eyebrow_left2.gif',
+        'x': 190,
+        'y': 150,
         'width': 38,
         'height': 30,
         'draggable': true,
     },
     {
         'path': 'assets/mouth.gif',
-        'x': 210,
-        'y': 120,
+        'x': 250,
+        'y': 150,
         'width': 29,
         'height': 8,
         'draggable': true,
     },
     {
         'path': 'assets/mouth2.gif',
-        'x': 270,
-        'y': 120,
+        'x': 300,
+        'y': 150,
         'width': 60,
         'height': 33,
         'draggable': true,
     },
     {
         'path': 'assets/mouth3.gif',
-        'x': 330,
-        'y': 120,
+        'x': 390,
+        'y': 150,
         'width': 69,
         'height': 61,
         'draggable': true,
@@ -116,8 +116,8 @@ const imageSettings = [
 ];
 
 
-const stageWidth = 500;
-const stageHeight = 1200;
+const stageWidth = 1000;
+const stageHeight = 600;
 
 const stage = new Konva.Stage({
     container: 'container',
@@ -133,7 +133,6 @@ for (let i = 0; i < imageSettings.length; i++) {
     };
     imageObj.src = settings['path'];
 }
-
 
 
 
