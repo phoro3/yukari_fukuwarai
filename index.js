@@ -116,28 +116,55 @@ const imageSettings = [
 ];
 
 
+
 const stageWidth = 1000;
 const stageHeight = 600;
+
+const box_x = 600;
+const box_y = 100;
+const box_width = 380;
+const box_height = 300;
+const box_color = 'red';
 
 const stage = new Konva.Stage({
     container: 'container',
     width: stageWidth,
     height: stageHeight
 });
+const layer = new Konva.Layer();
+const group = new Konva.Group();
 
+
+//Add images
 for (let i = 0; i < imageSettings.length; i++) {
     let imageObj = new Image();
     let settings = imageSettings[i];
     imageObj.onload = function () {
         drawImage(this, settings['x'], settings['y'], settings['width'], settings['height'], settings['draggable']);
+        layer.add(group);
+        stage.add(layer);
+        group.moveToBottom();
+        layer.draw();
     };
     imageObj.src = settings['path'];
 }
 
 
+//Add Box
+const box = new Konva.Rect({
+    x: box_x,
+    y: box_y,
+    width: box_width,
+    height: box_height,
+    fill: box_color,
+    opacity: 1.0
+});
+layer.add(box);
+
+
+
 
 function drawImage (imageObj, x, y, width, height, draggable) {
-    const layer = new Konva.Layer();
     //Add image
     const img = new Konva.Image({
         x: x,
@@ -157,10 +184,6 @@ function drawImage (imageObj, x, y, width, height, draggable) {
         });
     }
 
-    layer.add(img);
-    stage.add(layer);
-    layer.moveToTop();
-    layer.draw();
+    group.add(img);
 };
-
 
