@@ -131,40 +131,47 @@ const stage = new Konva.Stage({
     width: stageWidth,
     height: stageHeight
 });
-const layer = new Konva.Layer();
-const group = new Konva.Group();
 
 
-//Add images
-for (let i = 0; i < imageSettings.length; i++) {
-    let imageObj = new Image();
-    let settings = imageSettings[i];
-    imageObj.onload = function () {
-        drawImage(this, settings['x'], settings['y'], settings['width'], settings['height'], settings['draggable']);
-        layer.add(group);
-        stage.add(layer);
-        group.moveToBottom();
-        layer.draw();
-    };
-    imageObj.src = settings['path'];
+reset();
+
+function reset() {
+    //Clear Stage
+    stage.clear();
+
+    const layer = new Konva.Layer();
+    const group = new Konva.Group();
+    
+    //Add images
+    for (let i = 0; i < imageSettings.length; i++) {
+        let imageObj = new Image();
+        let settings = imageSettings[i];
+        imageObj.onload = function () {
+            drawImage(this, settings['x'], settings['y'], settings['width'], settings['height'], settings['draggable'], group);
+            layer.add(group);
+            stage.add(layer);
+            group.moveToBottom();
+            layer.draw();
+        };
+        imageObj.src = settings['path'];
+    }
+
+    //Add Box
+    const box = new Konva.Rect({
+        x: box_x,
+        y: box_y,
+        width: box_width,
+        height: box_height,
+        fill: box_color,
+        opacity: 1
+    });
+    layer.add(box);
 }
 
 
-//Add Box
-const box = new Konva.Rect({
-    x: box_x,
-    y: box_y,
-    width: box_width,
-    height: box_height,
-    fill: box_color,
-    opacity: 1
-});
-layer.add(box);
 
 
-
-
-function drawImage (imageObj, x, y, width, height, draggable) {
+function drawImage (imageObj, x, y, width, height, draggable, group) {
     //Add image
     const img = new Konva.Image({
         x: x,
