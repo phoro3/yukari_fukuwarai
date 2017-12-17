@@ -202,9 +202,18 @@ document.getElementById('open_button').addEventListener('click', function () {
     const box = layer[layer.length - 1].getChildren(function (node) {
         return node.getClassName() === 'Rect';
     });
+    const group = layer[layer.length - 1].getChildren(function (node) {
+        return node.getClassName() === 'Group';
+    });
+    const images = group[group.length - 1].getChildren(function (node) {
+        return node.getClassName() === 'Image';
+    });
     box.opacity(0);
+    console.log(images[0]);
+    for (let i = 0; i < images.length; i++) {
+        images[i].draggable(false);
+    }
     layer.draw();
-    console.log(layer);
 }, false);
 
 document.getElementById('reset_button').addEventListener('click', function () {
