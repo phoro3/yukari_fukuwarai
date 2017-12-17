@@ -195,8 +195,16 @@ function drawImage (imageObj, x, y, width, height, draggable, group) {
 };
 
 document.getElementById('open_button').addEventListener('click', function () {
+    const layer = stage.getChildren(function (node) {
+        return node.getClassName() === 'Layer';
+    });
+    const box = layer[0].getChildren(function (node) {
+        return node.getClassName() === 'Rect';
+    });
     box.opacity(0);
     layer.draw();
-    console.log('clicked');
 }, false);
 
+document.getElementById('reset_button').addEventListener('click', function () {
+    reset();
+}, false);
