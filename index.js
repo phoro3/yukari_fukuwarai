@@ -4,7 +4,7 @@ const imageSettings = [
     {
         'path': 'assets/face.gif',
         'x': 600,
-        'y': 100,
+        'y': 50,
         'width': 372,
         'height': 464,
         'draggable': false,
@@ -19,7 +19,7 @@ const imageSettings = [
     },
     {
         'path': 'assets/eye_left.gif',
-        'x': 80,
+        'x': 100,
         'y': 30,
         'width': 66,
         'height': 104,
@@ -27,7 +27,7 @@ const imageSettings = [
     },
     {
         'path': 'assets/eye_right2.gif',
-        'x': 170,
+        'x': 190,
         'y': 30,
         'width': 36,
         'height': 71,
@@ -35,7 +35,7 @@ const imageSettings = [
     },
     {
         'path': 'assets/eye_left2.gif',
-        'x': 220,
+        'x': 260,
         'y': 30,
         'width': 36,
         'height': 74,
@@ -43,7 +43,7 @@ const imageSettings = [
     },
     {
         'path': 'assets/eye_right3.gif',
-        'x': 270,
+        'x': 310,
         'y': 30,
         'width': 86,
         'height': 83,
@@ -51,7 +51,7 @@ const imageSettings = [
     },
     {
         'path': 'assets/eye_left3.gif',
-        'x': 360,
+        'x': 410,
         'y': 30,
         'width': 83,
         'height': 82,
@@ -60,55 +60,55 @@ const imageSettings = [
     {
         'path': 'assets/eyebrow_right.gif',
         'x': 30,
-        'y': 150,
+        'y': 230,
         'width': 30,
         'height': 32,
         'draggable': true,
     },
     {
         'path': 'assets/eyebrow_left.gif',
-        'x': 80,
-        'y': 150,
+        'x': 90,
+        'y': 230,
         'width': 38,
         'height': 30,
         'draggable': true,
     },
     {
         'path': 'assets/eyebrow_right2.gif',
-        'x': 130,
-        'y': 150,
+        'x': 160,
+        'y': 230,
         'width': 38,
         'height': 30,
         'draggable': true,
     },
     {
         'path': 'assets/eyebrow_left2.gif',
-        'x': 190,
-        'y': 150,
+        'x': 230,
+        'y': 230,
         'width': 38,
         'height': 30,
         'draggable': true,
     },
     {
         'path': 'assets/mouth.gif',
-        'x': 250,
-        'y': 150,
+        'x': 300,
+        'y': 230,
         'width': 29,
         'height': 8,
         'draggable': true,
     },
     {
         'path': 'assets/mouth2.gif',
-        'x': 300,
-        'y': 150,
+        'x': 360,
+        'y': 230,
         'width': 60,
         'height': 33,
         'draggable': true,
     },
     {
         'path': 'assets/mouth3.gif',
-        'x': 390,
-        'y': 150,
+        'x': 450,
+        'y': 230,
         'width': 69,
         'height': 61,
         'draggable': true,
@@ -121,10 +121,10 @@ const stageWidth = 1000;
 const stageHeight = 600;
 
 const box_x = 600;
-const box_y = 100;
+const box_y = 50;
 const box_width = 380;
 const box_height = 300;
-const box_color = 'red';
+const box_color = '#FC7A62';
 
 const stage = new Konva.Stage({
     container: 'container',
@@ -138,6 +138,7 @@ reset();
 function reset() {
     //Clear Stage
     stage.clear();
+    stage.removeChildren();
 
     const layer = new Konva.Layer();
     const group = new Konva.Group();
@@ -198,11 +199,12 @@ document.getElementById('open_button').addEventListener('click', function () {
     const layer = stage.getChildren(function (node) {
         return node.getClassName() === 'Layer';
     });
-    const box = layer[0].getChildren(function (node) {
+    const box = layer[layer.length - 1].getChildren(function (node) {
         return node.getClassName() === 'Rect';
     });
     box.opacity(0);
     layer.draw();
+    console.log(layer);
 }, false);
 
 document.getElementById('reset_button').addEventListener('click', function () {
