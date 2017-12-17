@@ -157,7 +157,7 @@ const box = new Konva.Rect({
     width: box_width,
     height: box_height,
     fill: box_color,
-    opacity: 1.0
+    opacity: 1
 });
 layer.add(box);
 
@@ -186,4 +186,10 @@ function drawImage (imageObj, x, y, width, height, draggable) {
 
     group.add(img);
 };
+
+document.getElementById('open_button').addEventListener('click', function () {
+    box.opacity(0);
+    layer.draw();
+    console.log('clicked');
+}, false);
 
